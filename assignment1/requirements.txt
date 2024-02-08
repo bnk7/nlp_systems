@@ -1,0 +1,8 @@
+altair
+fastapi
+flask
+graphviz
+pandas
+pydantic
+spacy
+streamlit
