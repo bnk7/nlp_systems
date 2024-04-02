@@ -1,9 +1,0 @@
-altair
-fastapi
-flask
-graphviz
-pandas
-pydantic
-spacy
-streamlit
-flask_sqlalchemy
