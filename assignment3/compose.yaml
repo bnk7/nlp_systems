@@ -2,18 +2,18 @@ services:
   fastapi:
     image: assignment3_fastapi
     build:
-      dockerfile: Dockerfile
+      dockerfile: app_fastapi/Dockerfile
     ports:
       - "8000:8000"
   flask:
     image: assignment3_flask
     build:
-      dockerfile: Dockerfile
+      dockerfile: app_flask/Dockerfile
     ports:
       - "5000:5000"
   streamlit:
     image: assignment3_streamlit
     build:
-      dockerfile: Dockerfile
+      dockerfile: app_streamlit/Dockerfile
     ports:
       - "8501:8501"

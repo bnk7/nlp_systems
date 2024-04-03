@@ -1,6 +1,6 @@
 FROM python:slim
 WORKDIR /app
 COPY . .
-RUN pip install -r requirements.txt
+RUN pip install -r app_flask/requirements.txt
 RUN python -m spacy download en_core_web_sm
-CMD ["python", "run_flask.py"]
+CMD ["python", "app_flask/run_flask.py"]

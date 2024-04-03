@@ -1,19 +1,19 @@
 from flask import request, render_template
-import ner
+from ner import SpacyDocument
 from flask_app import app
 from flask_app.model import EntityToken
 
 
 @app.route('/')
 def index_get():
-    return render_template('form.html', input=open('input.txt').read())
+    return render_template('form.html', input=open('app_flask/input.txt').read())
 
 
 @app.post('/results')
 def index_post():
     # process
     text = request.form['text']
-    doc = ner.SpacyDocument(text)
+    doc = SpacyDocument(text)
     markup = doc.get_entities_with_markup()
 
     # format

@@ -9,7 +9,7 @@ $ curl -X POST -H 'accept: application/json' -H 'Content-Type: application/json'
 import json
 from fastapi import FastAPI, Response
 from pydantic import BaseModel
-import ner
+from app_fastapi.ner import SpacyDocument
 
 app = FastAPI()
 
@@ -33,7 +33,7 @@ def index(pretty: bool = False):
 
 @app.post('/ner')
 def ner_process(item: Item, pretty: bool = False):
-    doc = ner.SpacyDocument(item.text)
+    doc = SpacyDocument(item.text)
     answer = {"input": item.text, "output": doc.get_entities()}
     if pretty:
         answer = prettify(answer)
@@ -42,7 +42,7 @@ def ner_process(item: Item, pretty: bool = False):
 
 @app.post('/dep')
 def ner_index(item: Item, pretty: bool = False):
-    doc = ner.SpacyDocument(item.text)
+    doc = SpacyDocument(item.text)
     answer = {"input": item.text, "output": doc.get_parse()}
     if pretty:
         answer = prettify(answer)
